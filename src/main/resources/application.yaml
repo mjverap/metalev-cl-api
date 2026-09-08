@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: neonpulse_api
+  profiles:
+    active: dev
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
