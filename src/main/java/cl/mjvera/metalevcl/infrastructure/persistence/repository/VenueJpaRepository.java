@@ -17,8 +17,8 @@ public interface VenueJpaRepository extends JpaRepository<VenueEntity, Long> {
             FROM VenueEntity v
             JOIN v.city c
             JOIN c.region r
-            WHERE (:region IS NULL OR LOWER(r.name) = LOWER(:region))
-              AND (:city IS NULL OR LOWER(c.name) = LOWER(:city))
+            WHERE (:region IS NULL OR LOWER(r.name) = :region)
+              AND (:city IS NULL OR LOWER(c.name) = :city)
             """)
     List<VenueEntity> findByRegionAndCity(@Param("region") String region, @Param("city") String city);
 }

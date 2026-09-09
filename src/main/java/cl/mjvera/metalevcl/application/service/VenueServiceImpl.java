@@ -38,16 +38,14 @@ public class VenueServiceImpl implements VenueService {
 
     @Override
     public List<Venue> getVenues() {
-        return List.copyOf(venueJpaRepository.findAll())
-                .stream()
+        return venueJpaRepository.findAll().stream()
                 .map(this::toDomainVenue)
                 .toList();
     }
 
     @Override
     public List<Venue> getVenues(String region, String city) {
-        return List.copyOf(venueJpaRepository.findByRegionAndCity(normalizeFilter(region), normalizeFilter(city)))
-                .stream()
+        return venueJpaRepository.findByRegionAndCity(normalizeFilter(region), normalizeFilter(city)).stream()
                 .map(this::toDomainVenue)
                 .toList();
     }
